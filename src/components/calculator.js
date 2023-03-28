@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./calculator.css"
+import Icon from "../images/delete.png"
 
 function Calculator() {
     const [displayValue, setDisplayValue] = useState('');
@@ -43,6 +44,7 @@ function Calculator() {
     function allClear() {
         setDisplayValue('');
     }
+    
 
     // Handle keydown events
     function handleKeyDown(event) {
@@ -63,14 +65,14 @@ function Calculator() {
     }
 
     return (
-        <div className="container">
+        <div className="container" tabIndex="0"  onKeyDown={handleKeyDown}>
             <div className="output">
                 <div id="display">{displayValue}</div>
             </div>
             <div className="row">
                 <button className="clear" onClick={clearInput}>CE</button>
                 <button className="clear" onClick={clearInput}>C</button>
-                <button className="clear" onClick={remove}><img src="images/delete.png" alt="" width="35px" height="35px" /></button>
+                <button className="clear" onClick={remove}><img src={Icon} alt="" width="35px" height="35px" /></button>
                 <button className="sign" onClick={() => addValue('/')}>/</button>
             </div>
             <div className="row">
